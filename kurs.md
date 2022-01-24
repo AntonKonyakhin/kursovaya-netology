@@ -97,7 +97,7 @@ Success! Data written to: pki/config/urls
 
 устанвливаем корневой сертификат на хостовую машину через mmc
 ca.pem
-![img.png](img.png)
+![img.png](image/img.png)
 
 Генерируем промежуточный сертификат:
 ```bash
@@ -200,11 +200,11 @@ server {
 скопировал сертификаты в папку `etc/nginx/certs/`  
 Страница сервера nginx в браузере хоста не содержит предупреждений
 
-![img_1.png](img_1.png)  
+![img_1.png](image/img_1.png)  
 
 
 срок действия:
-![img_8.png](img_8.png)  
+![img_8.png](image/img_8.png)  
 
 
 ###4. Создайте скрипт, который будет генерировать новый сертификат в vault:  
@@ -262,7 +262,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 
 сайт работает, ошибок с сертификатом нет
-![img_6.png](img_6.png)
+![img_6.png](image/img_6.png)
 
 
 
