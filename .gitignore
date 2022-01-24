@@ -1,0 +1,6 @@
+# created by virtualenv automatically
+.idea/*
+Scripts/*
+Lib/*
+vault_key/*
+*cfg
