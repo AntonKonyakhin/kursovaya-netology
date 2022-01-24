@@ -149,7 +149,8 @@ cat /home/anton/vault.example.com.crt | jq -r .data.issuing_ca >> /home/anton/we
 cat /home/anton/vault.example.com.crt | jq -r .data.private_key > /home/anton/web-server/certs/vault.example.key
 ```
 
-###3. Процесс установки и настройки сервера nginx
+
+### 3. Процесс установки и настройки сервера nginx
 ```
 sudo apt-add-repository ppa:nginx/stable
 sudo apt update
@@ -207,7 +208,8 @@ server {
 ![img_8.png](image/img_8.png)  
 
 
-###4. Создайте скрипт, который будет генерировать новый сертификат в vault:  
+
+### 4. Создайте скрипт, который будет генерировать новый сертификат в vault:  
 ```
 #!/bin/bash
 export VAULT_ADDR=http://127.0.0.1:8200
@@ -224,7 +226,8 @@ cp /home/anton/web-server/certs/vault.example.key /etc/nginx/certs/
 
 ```
 
-###5. Поместите скрипт в crontab, чтобы сертификат обновлялся какого-то числа каждого месяца в удобное для вас время.  
+
+### 5. Поместите скрипт в crontab, чтобы сертификат обновлялся какого-то числа каждого месяца в удобное для вас время.  
 отредактировал crontab на запуск каждые 2 минуты
 ```
 root@ubuntu-vm:/home/anton# vim /etc/crontab 
@@ -252,17 +255,17 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
 */2 * *  *  *   root /bin/bash /home/anton/generate_certificate.sh
 
-```
+```  
+
 было
-![img_4.png](image/img_4.png)
+
+![img_4.png](image/img_4.png)  
 
 стало
+
 ![img_5.png](image/img_5.png)
 
 
-
-сайт работает, ошибок с сертификатом нет
+сайт работает, ошибок с сертификатом нет  
 ![img_6.png](image/img_6.png)
-
-
 
